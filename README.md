@@ -10,4 +10,5 @@ A web-based journal application built with Express.js, MySQL, Sequelize CLI, Twi
 - Twig
 - Bootstrap
 
-Made by Josué Retana
+## Made by
+Josué Retana
