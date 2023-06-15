@@ -9,9 +9,9 @@ A web-based journal application built with Express.js, MySQL, Sequelize CLI, Twi
 
 For running the app follow this commands:
 
-`npm install`
-`sequelize db:migrate`
-`export DEBUG=blog:* && npm start`
+>`npm install`
+>`sequelize db:migrate`
+>`export DEBUG=blog:* && npm start`
 
 
 ## Technologies Used
