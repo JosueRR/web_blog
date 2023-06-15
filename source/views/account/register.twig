@@ -1,0 +1,31 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+	<div class="container w-auto mx-5 my-6 d-flex justify-content-center">
+		<div class="container-form w-30 p-3 border-0 rounded-pill">
+			<h1 class="p-3 my-4 justify-content-center">Register</h1>
+			<form action="/accounts/register" method="post" class="py-2">
+				<div class="mb-3">
+					<label for="username" class="form-label">
+						User name
+					</label>
+					<input type="text" class="form-control" name="username" id="username" required>
+				</div>
+				<div class="mb-3">
+					<label for="password">
+						Password
+					</label>
+					<input type="password" name="password" class="form-control" id="password" required>
+				</div>
+				<div class="mb-3">
+					<label for="email">
+						Email
+					</label>
+					<input type="email" name="email" class="form-control" id="email" required>
+				</div>
+				<button type="submit" class="btn btn-primary">Create Account</button>
+			</form>
+			<small> Already have an account? <a href="/accounts">Login Here</a> </small>
+		</div>
+	</div>
+{% endblock %}

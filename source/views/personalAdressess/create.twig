@@ -1,0 +1,37 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+    <h1>{{ title }}</h1>
+    <form method="POST">
+        <div>
+            <label for="nombre">Nombre:</label><br />
+            <input id="nombre" name="nombre" type="text" />
+        </div>
+        <div>
+            <label for="apellidos">Apellidos:</label><br />
+            <input id="apellidos" name="apellidos" type="text" />
+        </div>
+        <div>
+            <label for="telefonoCasa">Teléfono de la Casa:</label><br />
+            <input id="telefonoCasa" name="telefonoCasa" type="text" />
+        </div>
+        <div>
+            <label for="direccionCasa">Dirección de la Casa:</label><br />
+            <input id="direccionCasa" name="direccionCasa" type="text" />
+        </div>
+        <div>
+            <label for="telefonoTrabajo">Teléfono del Trabajo:</label><br />
+            <input id="telefonoTrabajo" name="telefonoTrabajo" type="text" />
+        </div>
+        <div>
+            <label for="direccionTrabajo">Dirección del Trabajo:</label><br />
+            <input id="direccionTrabajo" name="direccionTrabajo" type="text" />
+        </div>
+        <div>
+            <label for="correo">Correo Electrónico:</label><br />
+            <input id="correo" name="correo" type="text" />
+        </div>
+
+        <input type="submit" value="Crear" />
+    </form>
+{% endblock %}

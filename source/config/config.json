@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "ec06440",
+    "password": "Xec06440!",
+    "database": "ci0137_ec06440",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "ec06440",
+    "password": "Xec06440!",
+    "database": "ci0137_ec06440",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "ec06440",
+    "password": "Xec06440!",
+    "database": "ci0137_ec06440",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}

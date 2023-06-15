@@ -1,0 +1,18 @@
+{% extends 'layout.twig' %}
+
+<!-- navbar -->
+{% block navbar %}
+  {% if isAdmin == true %}
+    {% include 'common/AdminNavbar.twig' %}
+  {% elseif isRegistered == true %}
+    {% include 'common/UserNavbar.twig' %}
+  {% else %}
+    {% include 'common/ExternalNavbar.twig' %}
+  {% endif %}
+{% endblock %}
+
+{% block body %}
+    <h1  class="container-title w-auto py-4 mb-4 d-flex justify-content-center display-4" style="background-color: #F5EFE7; color: #213555;"> {{ title }} </h1>
+    <h2 class="container-title w-auto mx-5 my-4 d-flex justify-content-start display-6"> {% block secondTitle %}<i> DefaultSecondTitle </i>{% endblock %}</h2>
+    {% block mainContent %}{% endblock %}
+{% endblock %}

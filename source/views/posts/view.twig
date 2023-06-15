@@ -1,0 +1,36 @@
+{% extends 'common/home.twig' %}
+
+
+{% block secondTitle %} {% endblock %}
+{% block mainContent %}
+    <!-- Go back -->
+    <div class="w-auto mx-5 my-2 d-flex">
+        <a href="/posts">
+            <button type="button" class="btn btn-light"> 
+                <span class="btn-label">
+                    <i class="fa fa-chevron-left"></i>
+                </span> Ir atrás 
+            </button>
+        </a>
+    </div>
+    <!-- Body of Post -->
+    <p class=" w-auto mx-5 my-4 d-flex justify-content-start lead"> {{ body }} </p>
+    <!-- Comments -->
+    <div class="container w-60 mx-5 mb-5 border">
+    <h2 class="h4 w-auto my-4 d-flex justify-content-start"> List of Comments </h2>
+		{% for comment in comments %}
+        <p> <i class="fw-bold text-muted"> {{comment.Account.username}} said: </i> {{comment.comment}} </p>
+        <hr />
+		{% endfor %}
+    <!-- Write Comments -->
+        <form action="/comments/writeComment/{{ postId }}" method="post" class="py-2">
+            <div class="mb-3">
+                <label for="comment" class="form-label">
+                    Leave a comment...
+                </label>
+                <input maxlength="200" placeholder="Maximum Length of 200 Characters" type="text" class="form-control" name="comment" id="comment" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit comment</button>
+        </form>
+    </div>
+ {% endblock %}

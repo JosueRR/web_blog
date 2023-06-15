@@ -1,0 +1,33 @@
+{% extends 'common/home.twig' %}
+
+{% block secondTitle %} Update Post {% endblock %}
+
+
+{% block mainContent %}
+    <!-- Go back -->
+    <div class="w-auto mx-5 my-2 d-flex">
+        <a href="/posts">
+            <button type="button" class="btn btn-light"> 
+                <span class="btn-label">
+                    <i class="fa fa-chevron-left"></i>
+                </span> Go back
+            </button>
+        </a>
+    </div>
+
+    <div class="container w-60 m-5 py-3 border">
+        <form method="POST">
+            <div class="mb-3">
+                <label for="title" class="form-label">Título</label><br />
+                <input required maxlength="10" class="form-control" id="title" name="title" type="text" value="{{ post.title }}" />
+            </div>
+
+            <div class="mb-3">
+                <label for="body" class="form-label">Cuerpo:</label><br />
+                <textarea required maxlength="400" class="form-control" rows="3" id="body" name="body">{{ post.body }}</textarea>
+            </div>
+
+			<button type="submit" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+{% endblock %}

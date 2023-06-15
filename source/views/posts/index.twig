@@ -1,0 +1,87 @@
+{% extends 'common/home.twig' %}
+
+{% block secondTitle %} Last Entrys {% endblock %}
+
+{% block mainContent %}
+      <div class="row w-100">
+        <!-- Posts -->
+        <div class="main-posts col-10 p-6 ms-5 w-75">
+        {% block mainPost %}
+          <!-- Cycle for every post -->
+          {% for post in posts %}
+            <h4 class="text-muted h3">{{ post.title }}</h4>
+            <p class="text-justify lead" style="text-align: left; word-wrap: break-word; width: fit-content;">
+              {% if post.body|length > 300 %}
+                {{ post.body|slice(0, 297) }}...
+              {% else %}
+                {{ post.body }}
+              {% endif %}
+            </p>
+            <!-- Tags -->
+            <small>
+              <!-- Default Tags -->
+              <a href="/posts/view/{{ post.id }}">Read more</a>
+              &nbsp;|&nbsp;
+              <a aria-disabled="true">Number of comments: {{ post.Comments|length }}</a>
+              &nbsp;|&nbsp;
+              <a aria-disabled="true">Author: {{ post.Account.username }}</a>
+              &nbsp;|&nbsp;
+              <!-- Post Tags -->
+              {% for tag in post.Tags %}
+              <a aria-disabled="true"> Category: 
+                {{ tag.tagName }}
+              </a>
+              {% endfor %}
+              &nbsp;|&nbsp;
+              <a aria-disabled="true"> Entry Date: {{ post.Account.createdAt|date("D M d Y") }}</a>
+              <!-- Admin Options -->
+              {% if isAdmin == true %}
+                  &nbsp;|&nbsp;
+                  <a href="/posts/update/{{ post.id }}">Edit</a>
+                  &nbsp;|&nbsp;
+                  <a href="/posts/delete/{{ post.id }}" onclick="return confirm('¿Está seguro?');">Delete</a>
+              {% endif %}
+            </small>
+            <hr />
+          {% endfor %}
+          <!-- Lower part of posts -->
+          <!-- Pagination  of posts -->
+          {% block pagination %}
+          <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              {% for page in range(1, totalPages) %} 
+                <li class="page-item"> <a class="page-link" href="/posts/index/{{ page - 1 }}"> {{page}} </a></li>
+              {% endfor %}
+            </ul>
+          </nav>
+          {% endblock %}
+        {% endblock %}
+        </div>
+        <!-- Labels -->
+        <div class="labels-posts col-2 justify-content-center border-start">
+          <!-- Create new post -->
+          {% if isRegistered == true %}
+            <a  href="/posts/create"><button type="button" class="btn btn-light my-2">¡Añadir una nueva publicación!</button></a>
+            <hr />
+          {% endif %}
+          <!-- Categories -->
+          <h4 class="m-auto px-2 py-2" style="text-overflow: clip; white-space: nowrap;">Categories</h4>
+          <ul class="list-group list-group-flush">
+          {% for tag in tags %}
+            <li class="list-group-item border-0"> 
+              <a href="/tags/showPostsWithTag/{{tag.id}}"> {{tag.tagName}}</a>
+            </li>
+          {% endfor %}
+          </ul>
+          <!-- Authors -->
+          <h4 class="m-auto px-2 py-2" style="text-overflow: clip; white-space: nowrap;">Authors</h4>
+          <ul class="list-group list-group-flush">
+          {% for account in accounts %}
+            <li class="list-group-item border-0"> 
+              <a href="/posts/showPostsUser/{{account.id}}"> {{account.username}}</a>
+            </li>
+          {% endfor %}
+          </ul>
+        </div>
+    </div>
+{% endblock %}

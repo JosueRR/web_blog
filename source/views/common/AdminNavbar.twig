@@ -1,0 +1,15 @@
+{% extends 'common/navbar.twig' %}
+
+{% block navbar_options %}
+	<li class="nav-item">
+		<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">AdminMode</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" aria-current="page" href="/admin">
+			Administración</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" aria-current="page" href="/accounts/logout">
+			Log out</a>
+	</li>
+{% endblock %}

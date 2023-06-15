@@ -1,0 +1,36 @@
+{% extends 'common/home.twig' %}
+
+{% block secondTitle %} Create Post {% endblock %}
+
+{% block mainContent %}
+	<!-- Go back -->
+    <div class="w-auto mx-5 my-2 d-flex">
+        <a href="/posts">
+            <button type="button" class="btn btn-light"> 
+                <span class="btn-label">
+                    <i class="fa fa-chevron-left"></i>
+                </span> Go back
+            </button>
+        </a>
+    </div>
+
+	<div class="container w-60 m-5 py-3 border">
+		<form method="POST">
+			<div class="mb-3">
+				<label for="title" class="form-label">Título</label><br/>
+				<input class="form-control" id="title" name="title" type="text" maxlength="10" placeholder="Maximum Length of 10 Characters" required/>
+			</div>
+
+			<div class="mb-3">
+				<label for="body" class="form-label">Cuerpo</label><br/>
+				<textarea class="form-control" id="body" name="body" rows="3" required maxlength="600" placeholder="Maximum Length of 600 Characters"></textarea>
+			</div>
+
+			<div class="mb-3">
+				<label for="body" class="form-label">Tags</label><br/>
+				<input class="form-control" id="tag" name="tag" maxlength="8" placeholder="Maximum Length of 8 Characters" required></input>
+			</div>
+			<button type="submit" class="btn btn-primary">Crear</button>
+		</form>
+    </div>
+{% endblock %}
